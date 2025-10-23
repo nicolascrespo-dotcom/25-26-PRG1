@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class calcularPrecioFinal {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Precio unitario base (céntimos):");
+        int base = sc.nextInt();
+        System.out.println("Cantidad de unidades:");
+        int cantidad = sc.nextInt();
+        System.out.println("Tipo de IVA (21, 10 o 4):");
+        int iva = sc.nextInt();
+
+        double descuento = cantidad >= 100 ? 0.15 : cantidad >= 50 ? 0.10 : cantidad >= 10 ? 0.05 : 0.0;
+        double baseDescuento = base * (1 - descuento);
+        double precioUnitarioFinal = baseDescuento * (1 + iva / 100.0);
+        double precioTotal = precioUnitarioFinal * cantidad;
+
+        System.out.printf("Precio base: %.2f €\n", base / 100.0);
+        System.out.println("IVA aplicado: " + iva + "%");
+        System.out.println("Descuento aplicado: " + (int)(descuento * 100) + "%");
+        System.out.printf("Precio unitario final: %.2f €\n", precioUnitarioFinal / 100.0);
+        System.out.printf("Precio total: %.2f €\n", precioTotal / 100.0);
+    }
+}
