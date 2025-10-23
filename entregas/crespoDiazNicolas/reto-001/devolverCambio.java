@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class DevolverCambio {
+public class devolverCambio {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("¿Cuántos euros debe pagar?");
